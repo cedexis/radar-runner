@@ -1,4 +1,4 @@
-//  Copyright 2016 Cedexis. All rights reserved.
+// Copyright 2016 Cedexis
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software to deal in the Software without restriction,
@@ -20,18 +20,12 @@ import WebKit
 class Cedexis : NSObject, WKNavigationDelegate {
 
     func start(zoneId: Int, customerId: Int) {
-        var command = "cedexis.start("
-        command += String(zoneId) + "," + String(customerId)
-        command += ");"
-        commands.append(command);
+        commands.append("cedexis.start(\(zoneId),\(customerId));");
         process()
     }
 
     func impact(zoneId: Int, customerId: Int, withJSONString: String) {
-        var command = "cedexis.impact("
-        command += String(zoneId) + "," + String(customerId)
-        command += "," + withJSONString + ");"
-        commands.append(command);
+        commands.append("cedexis.start(\(zoneId),\(customerId),\(withJSONString));");
         process()
     }
 
@@ -45,12 +39,12 @@ class Cedexis : NSObject, WKNavigationDelegate {
         unload()
     }
 
-    internal
+    private
 
     var webView: WKWebView?
     var radarLoaded = false
     var commands: [String] = []
-    var hibernateUntil = Date() - 1
+    var hibernateUntil = Date()
 
     func process() {
         if (Date() < hibernateUntil) {

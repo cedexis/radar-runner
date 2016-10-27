@@ -23,21 +23,21 @@ application with the Cedexis Radar client embedded.
  3. Edit the ViewController class. Add the three lines containing "cedexis" so 
     it looks like the code below. You will need to use your real zone ID and
     customer ID for this to actually send data, but it's ok to test with 00000.
- 
-    class ViewController: UIViewController {
 
-        let cedexis = Cedexis()
-    
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            cedexis.start(zoneId: 1, customerId: 00000)
-        }
+        class ViewController: UIViewController {
 
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            cedexis.didReceiveMemoryWarning()
+            let cedexis = Cedexis()
+
+            override func viewDidLoad() {
+                super.viewDidLoad()
+                cedexis.start(zoneId: 1, customerId: 00000)
+            }
+
+            override func didReceiveMemoryWarning() {
+                super.didReceiveMemoryWarning()
+                cedexis.didReceiveMemoryWarning()
+            }
         }
-    }
 
 4. Run the program. You are done.
 

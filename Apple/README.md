@@ -53,4 +53,52 @@ that after calling this there is startup cost the next time `start` is called.
 
 ### Objective-C
 
-TODO
+Step by step guide for Xcode 8 and Swift. We'll create the simplest possible
+application with the Cedexis Radar client embedded.
+
+ * Create a new iOS project as a "Single View Application". Give it a name and
+   make sure the language option is set to "Objective-C".
+
+ * CTRL-click in the project navigator and choose "Add files to...". Select 
+   "Cedexis.h" and "Cedexis.m" to be added.
+    
+ * Edit "ViewController.m". Add the five lines containing "cedexis" so 
+   it looks like the code below. You will need to use your real zone ID and
+   customer ID for this to actually send data, but it's ok to test with 00000.
+
+        #import "ViewController.h"
+        #import "Cedexis.h"
+
+        @interface ViewController ()
+        { @private Cedexis *cedexis; }
+        @end
+
+        @implementation ViewController
+
+        - (void)viewDidLoad {
+            [super viewDidLoad];
+            cedexis = [Cedexis new];
+            [cedexis startForZoneId:1 customerId:15343];
+        }
+
+
+        - (void)didReceiveMemoryWarning {
+            [super didReceiveMemoryWarning];
+            [cedexis didReceiveMemoryWarning];
+        }
+
+        @end
+
+ * Run the program. You are done.
+ 
+### Using the API
+
+`cedexis.start` may be called repeatedly. Every time you call this a new probing
+session will run. Be aware that there is a waiting period between sessions
+(currently 1 minute, subject to change).
+
+`cedexis.impact` will log impact events. Your Cedexis support contact can help you
+determine what to log with this.
+
+`cedexis.didReceiveMemoryWarning` will free up all but a few bytes of memory. Note
+that after calling this there is startup cost the next time `start` is called.

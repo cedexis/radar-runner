@@ -1,4 +1,4 @@
-# Cedexis Radar Runner for Apple
+# Cedexis Radar Runner for Apple OS X and iOS
 
 ### Quick Start
 
@@ -14,32 +14,32 @@
 Step by step guide for Xcode 8 and Swift. We'll create the simplest possible
 application with the Cedexis Radar client embedded.
 
- 1. Create a new iOS project as a "Single View Application". Give it a name and
-    make sure the language option is set to "Swift".
+ * Create a new iOS project as a "Single View Application". Give it a name and
+   make sure the language option is set to "Swift".
 
- 2. CTRL-click in the project navigator and choose "Add files to...". Select 
-    "Cedexis.swift" to be added.
+ * CTRL-click in the project navigator and choose "Add files to...". Select 
+   "Cedexis.swift" to be added.
     
- 3. Edit the ViewController class. Add the three lines containing "cedexis" so 
-    it looks like the code below. You will need to use your real zone ID and
-    customer ID for this to actually send data, but it's ok to test with 00000.
+ * Edit the ViewController class. Add the three lines containing "cedexis" so 
+   it looks like the code below. You will need to use your real zone ID and
+   customer ID for this to actually send data, but it's ok to test with 00000.
 
-        class ViewController: UIViewController {
+       class ViewController: UIViewController {
 
-            let cedexis = Cedexis()
+           let cedexis = Cedexis()
 
-            override func viewDidLoad() {
-                super.viewDidLoad()
-                cedexis.start(zoneId: 1, customerId: 00000)
-            }
+           override func viewDidLoad() {
+               super.viewDidLoad()
+               cedexis.start(zoneId: 1, customerId: 00000)
+           }
 
-            override func didReceiveMemoryWarning() {
-                super.didReceiveMemoryWarning()
-                cedexis.didReceiveMemoryWarning()
-            }
-        }
+           override func didReceiveMemoryWarning() {
+               super.didReceiveMemoryWarning()
+               cedexis.didReceiveMemoryWarning()
+           }
+       }
 
-4. Run the program. You are done.
+ * Run the program. You are done.
 
 `cedexis.start` may be called repeatedly. Every time you call this a new probing
 session will run. There's no need to destroy the Cedexis instance. Be aware that
@@ -50,7 +50,6 @@ determine what to log with this.
 
 `cedexis.didReceiveMemoryWarning` will free up all but a few bytes of memory. Note
 that after calling this there is startup cost the next time `start` is called.
-
 
 ### Objective-C
 

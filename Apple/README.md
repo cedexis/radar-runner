@@ -41,16 +41,6 @@ application with the Cedexis Radar client embedded.
 
  * Run the program. You are done.
 
-`cedexis.start` may be called repeatedly. Every time you call this a new probing
-session will run. There's no need to destroy the Cedexis instance. Be aware that
-there is a waiting period between sessions (currently 1 minute, subject to change).
-
-`cedexis.impact` will log impact events. Your Cedexis support contact can help you
-determine what to log with this.
-
-`cedexis.didReceiveMemoryWarning` will free up all but a few bytes of memory. Note
-that after calling this there is startup cost the next time `start` is called.
-
 ### Objective-C
 
 Step by step guide for Xcode 8 and Swift. We'll create the simplest possible
@@ -78,9 +68,8 @@ application with the Cedexis Radar client embedded.
         - (void)viewDidLoad {
             [super viewDidLoad];
             cedexis = [Cedexis new];
-            [cedexis startForZoneId:1 customerId:15343];
+            [cedexis startForZoneId:1 customerId:00000];
         }
-
 
         - (void)didReceiveMemoryWarning {
             [super didReceiveMemoryWarning];

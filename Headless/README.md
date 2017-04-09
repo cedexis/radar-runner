@@ -43,11 +43,14 @@ Aside from the protocol, test page URLs include a Cedexis customer id.  This is
 replace this with your Cedexis customer id, which you can find in the Cedexis
 Portal on the Radar tag page: https://portal.cedexis.com/ui/radar/tag.
 
-![Customer ID from Radar Tag Page](../portal-cid.png)
+<img src="../portal-cid.png" alt="Customer ID from Radar Tag Page" width="320px">
 
 Radar sessions typically need a few seconds to complete, so the `sleep` command
 gives enough time for Firefox to load the test page and for the Radar client to
 run a session before the `pkill` command forces Firefox to close.
+
+You can execute this script periodically with an unprivileged account using any
+method of your choosing, e.g. cron, systemd timers, etc.
 
 ## A Working Example
 

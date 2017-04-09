@@ -35,12 +35,15 @@ As you can see from the example, the script runs two instances of Firefox,
 passing each one a different test page URL.  By default, Radar only measures
 platforms whose protocol matches that with which the Radar test page was called,
 so in this example, we're hitting both HTTP and HTTPS test pages.  If you're
-interested in measurements on a certain protocol, then you may prefer to comment
-out one of these commands.
+only interested in measurements on a certain protocol, then you may prefer to
+comment out one of these commands.
 
 Aside from the protocol, test page URLs include a Cedexis customer id.  This is
-*10816* in the example script, but you should replace this with your own Cedexis
-customer id in your script implementation.
+**10816** in the example script.  In your own script implementation, you should
+replace this with your Cedexis customer id, which you can find in the Cedexis
+Portal on the Radar tag page: https://portal.cedexis.com/ui/radar/tag.
+
+![Customer ID from Radar Tag Page](../portal-cid.png)
 
 Radar sessions typically need a few seconds to complete, so the `sleep` command
 gives enough time for Firefox to load the test page and for the Radar client to

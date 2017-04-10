@@ -60,8 +60,8 @@ client always measures specific platforms, you can include a *providers-set*
 parameter in the test page URL with its value set to a comma-separated list of
 platform ids. 
 
-For example to instruct the client to measure private platform id 123, the
-test page URL would be:
+For example, to instruct the client to always measure platform id 123, the test
+page URL would be:
 
 <pre>http://radar.cedexis.com/1/&lt;customer id&gt;/radar.html?providers-set=123</pre>
 

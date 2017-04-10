@@ -3,13 +3,15 @@
 On headless Linux servers, it is possible to run the Radar JavaScript client using
 [Xvfb](https://en.wikipedia.org/wiki/Xvfb) and your choice of web browser that
 supports the Resource Timing API.  The example provided here assumes the use of
-Ubuntu and Firefox.
+Firefox.
 
 ## Install Xvfb and Firefox
 
+On Debian/Ubuntu:
+
 ```bash
 apt-get update
-apt-get -y install xvfb firefox
+apt-get install xvfb firefox
 ```
 
 ## Create a shell script to run Radar

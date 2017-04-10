@@ -52,6 +52,22 @@ run a session before the `pkill` command forces Firefox to close.
 You can execute this script periodically with an unprivileged account using any
 method of your choosing, e.g. cron, systemd timers, etc.
 
+### Choosing platforms
+
+A common use case for running Radar from headless servers is to ensue a steady
+flow of Radar data for private platforms.  In order to ensure that the
+client always measures specific platforms, you can include a *providers-set*
+parameter in the test page URL with its value set to a comma-separated list of
+platform ids. 
+
+For example to instruct the client to measure private platform id 123, the
+test page URL would be:
+
+<pre>http://radar.cedexis.com/1/&lt;customer id&gt;/radar.html?providers-set=123</pre>
+
+The platform ids for your private providers can be found in the Portal on the
+Platforms page: https://portal.cedexis.com/ui/platforms.
+
 ## A Working Example
 
 For this you'll need [Vagrant](https://www.vagrantup.com/).

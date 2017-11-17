@@ -99,3 +99,13 @@ When you're finished with the virtual machine, you should shut it down:
 You can delete it to conserve disk space:
 
     vagrant destroy -f
+    
+## Known Issues
+
+### Glib messages
+
+You may notice many messages emitted to the console like this:
+
+    (firefox:28693): GLib-GObject-CRITICAL **: g_object_unref: assertion 'object->ref_count > 0' failed
+    
+These may be safely ignored.

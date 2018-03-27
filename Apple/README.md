@@ -7,7 +7,6 @@
  * Create an instance of the Cedexis class.
  * Call the start method with your zoneId and customerId.
  * Call didReceiveMemoryWarning from your delegate of the same name.
- * Optionally, call the impact method to submit impact data.
 
 ### Swift
 
@@ -85,9 +84,6 @@ possible application with the Cedexis Radar client embedded.
 `cedexis.start` may be called repeatedly. Every time you call this a new probing
 session will run. Be aware that there is a waiting period between sessions
 (currently 1 minute, subject to change).
-
-`cedexis.impact` will log impact events. Your Cedexis support contact can help you
-determine what to log with this.
 
 `cedexis.didReceiveMemoryWarning` will free up all but a few bytes of memory. Note
 that after calling this there is startup cost the next time `start` is called.

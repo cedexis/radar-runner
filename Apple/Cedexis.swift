@@ -20,7 +20,7 @@ import WebKit
 class Cedexis : NSObject, WKNavigationDelegate {
 
     func start(zoneId: Int, customerId: Int) {
-        commands.append("cedexis.start(\(zoneId),\(customerId));");
+        commands.append("cedexis.start(\(zoneId),\(customerId),\(clientProfile),\(clientProfileVersion));");
         process()
     }
 
@@ -43,6 +43,11 @@ class Cedexis : NSObject, WKNavigationDelegate {
 
     var webView: WKWebView?
     var radarLoaded = false
+    // 1 is the client profile for iOS
+    var clientProfile = 1
+    // The profile version expresses the version of the Radar runner code used
+    // to invoke the webview
+    var clientProfileVersion = 1
     var commands: [String] = []
     var hibernateUntil = Date()
 

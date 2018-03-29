@@ -24,17 +24,6 @@ class Cedexis : NSObject, WKNavigationDelegate {
         process()
     }
 
-    func impact(zoneId: Int, customerId: Int, withJSONString: String) {
-        commands.append("cedexis.start(\(zoneId),\(customerId),\(withJSONString));");
-        process()
-    }
-
-    func impact(zoneId: Int, customerId: Int, withJSONObject: Any) throws {
-        let jsonData = try JSONSerialization.data(withJSONObject: withJSONObject, options: [])
-        let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
-        impact(zoneId: zoneId, customerId: customerId, withJSONString: decoded as! String)
-    }
-
     func didReceiveMemoryWarning() {
         unload()
     }

@@ -32,11 +32,11 @@ class Cedexis : NSObject, WKNavigationDelegate {
 
     var webView: WKWebView?
     var radarLoaded = false
-    // 1 is the client profile for iOS
-    var clientProfile = 1
+    // 1 is the client profile for iOS (Swift)
+    let clientProfile = 1
     // The profile version expresses the version of the Radar runner code used
     // to invoke the webview
-    var clientProfileVersion = 1
+    let clientProfileVersion = 1
     var commands: [String] = []
     var hibernateUntil = Date()
 

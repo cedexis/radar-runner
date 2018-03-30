@@ -18,6 +18,11 @@
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
 
+// 4 is the client profile for iOS (Objective-C)
+const int CLIENT_PROFILE = 4;
+// The profile version expresses the version of the Radar runner code used to invoke the webview
+const int CLIENT_PROFILE_VERSION = 1;
+
 @interface Cedexis()
 {
 @private
@@ -37,8 +42,8 @@
 }
 
 - (void)startForZoneId:(int)zoneId customerId:(int)customerId {
-    [commands addObject:[NSString stringWithFormat:@"cedexis.start(%d,%d);",
-                         zoneId, customerId]];
+    [commands addObject:[NSString stringWithFormat:@"cedexis.start(%d,%d,%d,%d);",
+                         zoneId, customerId, CLIENT_PROFILE, CLIENT_PROFILE_VERSION]];
     [self process];
 }
 

@@ -47,20 +47,6 @@ const int CLIENT_PROFILE_VERSION = 1;
     [self process];
 }
 
-- (void)impactForZoneId:(int)zoneId customerId:(int)customerId withJSONString:(NSString*)string {
-    [commands addObject:[NSString stringWithFormat:@"cedexis.impact(%d,%d,%@);",
-                         zoneId, customerId, string]];
-    [self process];
-}
-
-- (void)impactForZoneId:(int)zoneId customerId:(int)customerId withJSONObject:(NSObject*)object {
-    NSError *error = nil;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:object options:0 error:&error];
-    if (json == nil || error != nil) { return; }
-    NSString *jsonString = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
-    [self impactForZoneId:customerId customerId:customerId withJSONString:jsonString];
-}
-
 - (void)didReceiveMemoryWarning {
     [self unload];
 }

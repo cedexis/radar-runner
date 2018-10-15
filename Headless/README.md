@@ -54,6 +54,13 @@ run a session before the `pkill` command forces Firefox to close.
 You can execute this script periodically with an unprivileged account using any
 method of your choosing, e.g. cron, systemd timers, etc.
 
+For Firefox 55+, please include a `-headless` flag in the command to execute a Radar session. For example, in the example given above, those lines would become:
+
+```bash
+xvfb-run -a firefox -headless http://radar.cedexis.com/1/10816/radar.html &
+xvfb-run -a firefox -headless https://radar.cedexis.com/1/10816/radar.html &
+```
+
 ### Choosing platforms
 
 A common use case for running Radar from headless servers is to ensue a steady
@@ -62,10 +69,10 @@ client always measures specific platforms, you can include a *providers-set*
 parameter in the test page URL with its value set to a comma-separated list of
 platform ids. 
 
-For example, to instruct the client to always measure platform id 123, the test
+For example, to instruct the client to always measure platform id 123 and 456, the test
 page URL would be:
 
-<pre>http://radar.cedexis.com/1/&lt;customer id&gt;/radar.html?providers-set=123</pre>
+<pre>http://radar.cedexis.com/1/&lt;customer id&gt;/radar.html?providers-set=123,456</pre>
 
 The platform ids for your private providers can be found in the Portal on the
 Platforms page: https://portal.cedexis.com/ui/platforms.
@@ -109,3 +116,16 @@ You may notice many messages emitted to the console like this:
     (firefox:28693): GLib-GObject-CRITICAL **: g_object_unref: assertion 'object->ref_count > 0' failed
     
 These may be safely ignored.
+
+You may also see errors like these:
+
+```bash
+ExceptionHandler::GenerateDump cloned child 116335
+ExceptionHandler::SendContinueSignalToChild sent continue signal to child
+ExceptionHandler::WaitForContinueSignal waiting for continue signal...
+Segmentation fault
+Failed to connect to Mir: Failed to connect to server socket: No such file or directory
+Unable to init server: Could not connect: Connection refused
+```
+
+This usually means a newer version of Firefox is being used without passing it the `-headless` parameter.

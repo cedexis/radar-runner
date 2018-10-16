@@ -35,6 +35,13 @@ Radar sessions typically need a few seconds to complete, so the `sleep` command 
 
 Radar only measures platforms whose protocol matches that with which the Radar test page was called. In this example, we're hitting the HTTP endpoint, so we'll only measure platforms that have HTTP URLs. If you wish to measure HTTPS platforms, you should make sure to specify HTTPS in the URL for radar.html. If you need to measure both protocols, then you'll need to arrange for Firefox to be invoked for HTTP and HTTPS separately. For example, you could create two scripts like the one shown above, one for HTTP and one for HTTPS. You'll need to arrange for them to be invoked separately with enough time for each to complete comfortably. With cron, you might do this by scheduling one script to run every 10 minutes starting at the top of the hour and the other script to run every 10 minutes starting at the 5th minute of the hour.
 
+Example crontab:
+
+```crontab
+*/10 * * * * /etc/cron.d/run-radar-for-http.sh >/dev/null 2>&1
+5-59/10 * * * * /etc/cron.d/run-radar-for-https.sh >/dev/null 2>&1
+```
+
 Aside from the protocol, test page URLs include a Cedexis customer id.  This is **10816** in the example script.  In your own script implementation, you should replace this with your Cedexis customer id, which you can find in the Cedexis Portal on the Radar tag page: https://portal.cedexis.com/ui/radar/tag.
 
 <img src="../portal-cid.png" alt="Customer ID from Radar Tag Page" width="320px">

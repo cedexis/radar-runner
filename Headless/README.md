@@ -42,7 +42,7 @@ Example crontab:
 5-59/10 * * * * /etc/cron.d/run-radar-for-https.sh >/dev/null 2>&1
 ```
 
-Aside from the protocol, test page URLs include a Cedexis customer id.  This is **10816** in the example script.  In your own script implementation, you should replace this with your Cedexis customer id, which you can find in the Cedexis Portal on the Radar tag page: https://portal.cedexis.com/ui/radar/tag.
+Aside from the protocol, test page URLs include a Cedexis customer id (`10816` in the example script above).  In your own script implementation, you should replace this with your Cedexis customer id, which you can find in the Cedexis Portal on the Radar tag page: https://portal.cedexis.com/ui/radar/tag.
 
 <img src="../portal-cid.png" alt="Customer ID from Radar Tag Page" width="320px">
 

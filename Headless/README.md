@@ -1,4 +1,4 @@
-# headless-radar
+# Running Radar on a Headless Server
 
 Firefox and Chrome can both be run in headless mode, which is an effective way to run Radar sessions on a server. The example here is for Firefox.
 
@@ -46,7 +46,7 @@ Aside from the protocol, test page URLs include a Cedexis customer id (`10816` i
 
 <img src="../portal-cid.png" alt="Customer ID from Radar Tag Page" width="320px">
 
-### Choosing platforms
+**Choosing platforms**
 
 A common use case for running Radar from headless servers is to ensue a steady flow of Radar data for private platforms.  In order to ensure that the client always measures specific platforms, you can include a *providers-set* parameter in the test page URL with its value set to a comma-separated list of platform ids. 
 
@@ -57,8 +57,6 @@ For example, to instruct the client to always measure platform id 123 and 456, t
 The platform ids for your private providers can be found in the Portal on the Platforms page: https://portal.cedexis.com/ui/platforms.
  
 ## Known Issues
-
-### Glib messages
 
 You may notice many messages emitted to the console like this:
 
